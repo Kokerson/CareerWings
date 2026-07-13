@@ -2,11 +2,14 @@ import json
 plik_notatki = "notatki.json"
 
 def wczytaj():
-    plik = open(plik_notatki, 'r')
-    zawartosc = plik.read()
-    if(zawartosc != ""):
-        return json.loads(zawartosc)
-    else:
+    try:
+        plik = open(plik_notatki, 'r')
+        zawartosc = plik.read()
+        if (zawartosc != ""):
+            return json.loads(zawartosc)
+        else:
+            return []
+    except FileNotFoundError:
         return []
 
 def zapisz(notatki):
@@ -34,7 +37,7 @@ def usun(notatki):
         print("Brak notatek do usunięcia")
     else:
         numer = int(input("Którą notatkę chcesz usunąć ?"))
-        if (numer >= len(notatki) or numer <= 0):
+        if (numer > len(notatki) or numer <= 0):
             print("zły numer\n")
         else:
             notatki.pop(numer-1)
