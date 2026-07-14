@@ -3,19 +3,18 @@ plik_notatki = "notatki.json"
 
 def wczytaj():
     try:
-        plik = open(plik_notatki, 'r')
-        zawartosc = plik.read()
-        if (zawartosc != ""):
-            return json.loads(zawartosc)
-        else:
-            return []
+        with open(plik_notatki, 'r') as plik:
+            zawartosc = plik.read()
+            if (zawartosc != ""):
+                return json.loads(zawartosc)
+            else:
+                return []
     except FileNotFoundError:
         return []
 
 def zapisz(notatki):
-    plik = open(plik_notatki, 'w')
-    json.dump(notatki, plik)
-    plik.close()
+    with open(plik_notatki, 'w') as plik:
+        json.dump(notatki, plik)
 
 def dodaj(notatki):
     text = input("Wpisz treść notatki: ")
