@@ -1,0 +1,72 @@
+:root {
+  background-color: #bde27a;
+  padding: 20px;
+}
+body {
+  color: rgb(48, 19, 19);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0 auto;
+}
+input {
+  background-color: blue;
+  color: black;
+  width: 100%;
+}
+input:hover {
+  background-color: aqua;
+}
+input:focus {
+  background-color: rgb(83, 154, 154);
+}
+button {
+  background-color: yellow;
+  text-align: center;
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+}
+button:hover {
+  background-color: #5a6fd6;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+button:active {
+  transform: scale(0.95);
+}
+h1 {
+  font-size: 50px;
+  margin-bottom: 5px;
+}
+p {
+  color: green;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    padding: 15px;
+  }
+
+  body {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 11px 24px;
+  }
+}
