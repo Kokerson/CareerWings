@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarejestruj się</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Załóż konto</h1>
+        <form action="/rejestracja" method="POST">
+            <input type="text" name="nazwa_uzytkownika" placeholder="Nazwa użytkownika" required>
+            <input type="password" name="haslo" placeholder="Hasło" required>
+            <button type="submit">Zarejestruj się</button>
+        </form>
+
+        <p style="font-size: 14px; color: #666; margin-top: 15px;">
+            Rejestrując się, akceptujesz, że treść Twoich zapytań i przesyłanych plików będzie przetwarzana przez zewnętrzny model AI (Claude, firmy Anthropic) w celu wygenerowania odpowiedzi.[cite: 8]
+        </p>
+
+        {% if blad %}<p class="answer-box"><strong>Błąd:</strong> {{ blad }}</p>{% endif %}
+        {% if sukces %}
+            <p class="answer-box" style="background-color: #d4edda; color: #155724;">
+                {{ sukces }} <a href="/logowanie">Zaloguj się</a>
+            </p>
+        {% endif %}
+        <p><a href="/logowanie">Masz już konto? Zaloguj się tu</a></p>
+    </main>
+</body>
+</html>
